@@ -53,7 +53,7 @@ module RuleEngine
       groups << group
     end
 
-    def self_contained?(content : String)
+    def match?(content : String)
       @groups.each do |group|
         return true if group.self_contained? content
       end
