@@ -1,4 +1,4 @@
-module RuleEngine
-  VERSION = "0.0.1"
+require "./rule_engine/*"
 
+module RuleEngine
 end
