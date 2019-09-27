@@ -33,9 +33,9 @@ describe RuleEngine do
         柬埔寨 招 菠菜 WX
         TEXT
       Benchmark.ips do |x|
-        x.report("expand(long)") { r1.match? content }
-        x.report("expand(short)") { r1.match? "我们柬埔寨正在招聘菠菜 WX" }
-        x.report("regex#=~") { /(柬埔寨|东南亚).*(招聘|QQ|微信|wx|WX).*(博彩|菠菜)/ =~ content }
+        x.report("compiled-long") { r1.match? content }
+        x.report("compiled-short") { r1.match? "我们柬埔寨正在招聘菠菜 WX" }
+        x.report("regex") { /(柬埔寨|东南亚).*(招聘|QQ|微信|wx|WX).*(博彩|菠菜)/ =~ content }
       end
     end
   end
@@ -53,8 +53,8 @@ describe RuleEngine do
         柬埔寨 招 菠菜 WX
         TEXT
       Benchmark.ips do |x|
-        x.report("parsing(long)") { Parser.parse!(rule_s).match? content }
-        x.report("parsing(short)") { Parser.parse!(rule_s).match? "我们柬埔寨正在招聘菠菜 WX" }
+        x.report("parsing-long") { Parser.parse!(rule_s).match? content }
+        x.report("parsing-short") { Parser.parse!(rule_s).match? "我们柬埔寨正在招聘菠菜 WX" }
       end
     end
   end

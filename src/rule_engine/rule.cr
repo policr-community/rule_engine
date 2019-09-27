@@ -54,6 +54,8 @@ module RuleEngine
     end
 
     def match?(content : String)
+      content = content.gsub " ", ""
+
       @groups.each do |group|
         return true if group.self_contained? content
       end

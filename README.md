@@ -21,7 +21,7 @@ require "rule_engine"
 
 rule = RuleEngine.compile! "[柬埔寨|东南亚 菠菜|博彩 招聘|微信]"
 
-rule.match? "东南亚招聘菠菜"   # => true
+rule.match? "东南亚招聘菠菜"  # => true
 rule.match? "柬埔寨博彩加微信" # => true
 ```
 
