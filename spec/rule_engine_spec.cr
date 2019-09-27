@@ -6,8 +6,8 @@ alias Unit = RuleEngine::Unit
 alias Parser = RuleEngine::Parser
 
 describe RuleEngine do
-  it "parse!" do
-    RuleEngine.parse!("[嘻嘻 哈哈]").should be_truthy
+  it "compile!" do
+    RuleEngine.compile!("[嘻嘻 哈哈]").should be_truthy
   end
 
   describe RuleEngine::Rule do
@@ -41,7 +41,7 @@ describe RuleEngine do
   end
 
   describe RuleEngine::Parser do
-    it "parse!" do
+    it "compile!" do
       rule_s = "[东南亚|柬埔寨 菠菜|博彩 招聘|QQ|微信|wx|WX]"
       r1 = Parser.parse! rule_s
       r1.match?("柬埔寨 菠菜 招聘").should eq(true)
