@@ -54,7 +54,7 @@ module RuleEngine
     end
 
     def match?(content : String)
-      content = content.gsub " ", ""
+      content = content.gsub(" ", "").downcase
 
       @groups.each do |group|
         return true if group.self_contained? content
